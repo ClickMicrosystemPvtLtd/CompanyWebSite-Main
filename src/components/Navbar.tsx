@@ -13,6 +13,7 @@ const primaryLinks = [
   { label: "Products", path: "/products" },
   { label: "Industries", path: "/industries" },
   { label: "Insights", path: "/insights" },
+  { label: "Careers", path: "/careers" },
 ];
 
 const actionLinks = [

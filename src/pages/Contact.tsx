@@ -254,6 +254,7 @@ const Contact = () => {
                     <option>Service Consultation</option>
                     <option>Products Demo</option>
                     <option>Trainings</option>
+                    <option>Careers</option>
                     <option>Partnership</option>
                   </select>
                 </div>

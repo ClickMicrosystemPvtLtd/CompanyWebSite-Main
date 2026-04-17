@@ -1,54 +1,121 @@
+import { Link } from "react-router-dom";
+import {
+  ArrowRight,
+  BriefcaseBusiness,
+  Code2,
+  GraduationCap,
+  Laptop2,
+  Rocket,
+  Send,
+  Sparkles,
+  Users,
+} from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Sparkles, TrendingUp, Users, Globe } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeading from "@/components/SectionHeading";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import careersBg from "@/assets/careers-bg.jpg";
 
-const perks = [
-  { icon: Sparkles, title: "Innovative Work Culture", desc: "Work on cutting-edge projects that challenge you to think outside the box." },
-  { icon: TrendingUp, title: "Career Growth", desc: "Opportunities for personal and professional growth with continuous learning." },
-  { icon: Users, title: "Diverse & Inclusive", desc: "We value different perspectives and encourage a workplace where everyone's voice is heard." },
-  { icon: Globe, title: "Impactful Work", desc: "Shape the future of industries like healthcare, finance, automotive, and more." },
+const internshipTracks = [
+  {
+    icon: Code2,
+    title: "Software Development Intern",
+    detail: "Work on React, TypeScript, frontend features, APIs, and practical product delivery.",
+  },
+  {
+    icon: Laptop2,
+    title: "UI/UX & Web Intern",
+    detail: "Support landing pages, design refinements, responsive layouts, and content presentation.",
+  },
+  {
+    icon: Rocket,
+    title: "AI & Automation Intern",
+    detail: "Contribute to AI workflows, automation ideas, and implementation support on live projects.",
+  },
 ];
 
+const programHighlights = [
+  "Real project exposure with mentor support",
+  "Hands-on learning in web, AI, and business technology",
+  "Structured weekly reviews and portfolio-building guidance",
+  "Certificate and performance-based growth opportunities",
+];
+
+const candidateSignals = [
+  "Students or fresh graduates from technical, design, or related programs",
+  "Comfortable learning fast and taking ownership of small deliverables",
+  "Basic understanding of web development, design tools, or AI concepts",
+  "Strong communication, curiosity, and consistency in execution",
+];
+
+const applicationSteps = [
+  { step: "Apply", desc: "Send your resume, portfolio, or project links with the internship track you want." },
+  { step: "Review", desc: "We assess your skills, interest, and fit for current intern openings." },
+  { step: "Discussion", desc: "Short conversation about your background, goals, and availability." },
+  { step: "Start", desc: "Selected candidates receive onboarding details and project orientation." },
+];
+
+const internshipApplicationUrl =
+  "https://mail.google.com/mail/?view=cm&fs=1&to=ayush@clickmicrosystem.in&su=Internship%20Application%20-%20Field%20of%20Interest&body=Hello%20Ayush%2C%0A%0AI%20would%20like%20to%20apply%20for%20an%20internship%20at%20Click%20Microsystem.%0A%0AField%20of%20interest%3A%20%0AFull%20name%3A%20%0ACollege%20%2F%20Course%3A%20%0APhone%20number%3A%20%0AAvailable%20from%3A%20%0A%0AI%20will%20attach%20my%20resume%20for%20review.%0A%0ARegards%2C%0A";
+
 const Careers = () => (
-  <div className="min-h-screen">
+  <div className="min-h-screen bg-white">
     <Navbar />
 
-    {/* Hero with BG image */}
-    <section className="relative pt-32 pb-20 px-4 md:px-8 overflow-hidden">
+    <section className="relative overflow-hidden px-4 pb-16 pt-28 sm:px-6 md:px-8 md:pb-20 md:pt-36">
       <div className="absolute inset-0">
-        <img src={careersBg} alt="" className="w-full h-full object-cover" />
-        <div className="absolute inset-0 bg-primary/85" />
+        <img src={careersBg} alt="" className="h-full w-full object-cover" />
+        <div className="absolute inset-0 bg-slate-950/80" />
       </div>
       <div className="container-custom relative z-10">
-        <AnimatedSection className="max-w-3xl">
-          <span className="text-accent font-display text-sm font-medium tracking-wider uppercase text-hero-sub">Careers</span>
-          <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white mt-3 mb-6 leading-[1.1] text-hero-shadow">
-            Join Our Team – Be Part of <span className="gradient-text">Global Change</span>
+        <AnimatedSection className="max-w-4xl">
+          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-orange-300 sm:text-sm">Careers</span>
+          <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-white sm:text-4xl md:text-5xl lg:text-6xl">
+            Internship opportunities for people ready to build, learn, and contribute.
           </h1>
-          <p className="text-lg text-white/90 leading-relaxed text-hero-sub">
-            At ClickMicroSystem, we believe that exceptional work begins with hiring, celebrating, and nurturing the best people from all walks of life.
+          <p className="mt-5 max-w-3xl text-base leading-relaxed text-white/85 sm:mt-6 sm:text-lg">
+            We are hiring interns who want meaningful project exposure, strong mentorship, and a practical path into modern
+            software, AI, and digital product work.
           </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a href={internshipApplicationUrl} target="_blank" rel="noreferrer">
+              <Button size="lg" className="w-full gap-2 bg-orange-500 px-8 font-semibold text-white hover:bg-orange-600 sm:w-auto">
+                Apply for Internship <Send size={18} />
+              </Button>
+            </a>
+            <p className="text-sm text-white/75 sm:self-center">
+            </p>
+            <Link to="/contact">
+              <Button
+                size="lg"
+                variant="outline"
+                className="w-full border-orange-200 bg-white/10 px-8 font-semibold text-white hover:bg-white/20 hover:text-white sm:w-auto"
+              >
+                Talk to Our Team <ArrowRight size={18} />
+              </Button>
+            </Link>
+          </div>
         </AnimatedSection>
       </div>
     </section>
 
-    {/* Why ClickMicroSystem */}
     <section className="section-padding">
       <div className="container-custom">
-        <SectionHeading label="Why Work at ClickMicroSystem" title="A Place Where Innovation Thrives" />
-        <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-          {perks.map((p, i) => (
-            <AnimatedSection key={p.title} delay={i * 0.1}>
-              <div className="glass-card p-6 h-full text-center">
-                <div className="w-14 h-14 rounded-2xl bg-accent/10 flex items-center justify-center mx-auto mb-4">
-                  <p.icon size={24} className="text-accent" />
+        <SectionHeading
+          label="Internship Tracks"
+          title="Open roles for ambitious interns"
+          description="Choose the path that best fits your current skills and the kind of work you want to grow into."
+        />
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3 xl:gap-6">
+          {internshipTracks.map((track, index) => (
+            <AnimatedSection key={track.title} delay={index * 0.08}>
+              <div className="h-full rounded-3xl border border-orange-100 bg-white p-6 shadow-lg shadow-slate-200/35">
+                <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100">
+                  <track.icon size={26} className="text-orange-500" />
                 </div>
-                <h3 className="font-display font-semibold text-lg mb-2">{p.title}</h3>
-                <p className="text-sm text-muted-foreground leading-relaxed">{p.desc}</p>
+                <h3 className="font-display text-xl font-semibold text-slate-900">{track.title}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{track.detail}</p>
               </div>
             </AnimatedSection>
           ))}
@@ -56,71 +123,110 @@ const Careers = () => (
       </div>
     </section>
 
-    {/* Apply Now - Left/Right Layout */}
-    <section className="section-padding bg-muted/50">
-      <div className="container-custom">
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          {/* Left - Info */}
-          <AnimatedSection direction="left">
-            <span className="text-accent font-display text-sm font-medium tracking-wider uppercase">Apply Now</span>
-            <h2 className="font-display font-bold text-3xl md:text-4xl text-foreground mt-3 mb-6">
-              Ready to Make a <span className="gradient-text">Difference</span>?
-            </h2>
-            <p className="text-muted-foreground leading-relaxed mb-6">
-              Submit your application and join our mission to change the world with technology. We're looking for passionate individuals who want to push boundaries and create impact.
-            </p>
-            <div className="space-y-4">
-              {[
-                "Work with cutting-edge technologies like AI, Cloud & IoT",
-                "Collaborate with global teams across 9+ industries",
-                "Continuous learning and professional development",
-                "Competitive compensation and flexible work culture",
-              ].map((item) => (
+    <section className="section-padding bg-orange-50/50">
+      <div className="container-custom grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:gap-8">
+        <AnimatedSection direction="left">
+          <div className="rounded-3xl bg-slate-900 p-6 text-white shadow-xl sm:p-8">
+            <span className="text-xs font-semibold uppercase tracking-[0.24em] text-orange-300 sm:text-sm">Why Join</span>
+            <h2 className="mt-3 font-display text-2xl font-bold sm:text-3xl">A practical internship, not a passive one.</h2>
+            <div className="mt-6 space-y-4">
+              {programHighlights.map((item) => (
                 <div key={item} className="flex items-start gap-3">
-                  <div className="w-2 h-2 rounded-full bg-accent mt-2 flex-shrink-0" />
-                  <span className="text-sm text-muted-foreground">{item}</span>
+                  <Sparkles size={18} className="mt-0.5 flex-shrink-0 text-orange-300" />
+                  <span className="text-sm text-white/85">{item}</span>
                 </div>
               ))}
             </div>
-          </AnimatedSection>
+            <div className="mt-8 grid gap-4 rounded-2xl bg-white/5 p-5 sm:grid-cols-2">
+              <div>
+                <div className="flex items-center gap-2 text-orange-300">
+                  <Users size={16} />
+                  <span className="text-sm font-semibold">Mentorship</span>
+                </div>
+                <p className="mt-2 text-sm text-white/80">Work closely with a team that reviews, guides, and helps you improve.</p>
+              </div>
+              <div>
+                <div className="flex items-center gap-2 text-orange-300">
+                  <GraduationCap size={16} />
+                  <span className="text-sm font-semibold">Growth</span>
+                </div>
+                <p className="mt-2 text-sm text-white/80">Build confidence, project experience, and proof of capability for your next step.</p>
+              </div>
+            </div>
+          </div>
+        </AnimatedSection>
 
-          {/* Right - Form */}
-          <AnimatedSection direction="right">
-            <form className="glass-card p-8 space-y-5" onSubmit={(e) => e.preventDefault()}>
-              <div className="grid md:grid-cols-2 gap-5">
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Full Name</label>
-                  <input type="text" className="w-full px-4 py-2.5 rounded-lg bg-background border border-input text-sm focus:ring-2 focus:ring-accent/50 outline-none transition" placeholder="Your name" />
+        <AnimatedSection direction="right">
+          <div className="rounded-3xl border border-orange-100 bg-white p-6 shadow-lg shadow-slate-200/35 sm:p-8">
+            <span className="text-xs font-semibold uppercase tracking-[0.24em] text-orange-500 sm:text-sm">Who Should Apply</span>
+            <h2 className="mt-3 font-display text-2xl font-bold text-slate-900 sm:text-3xl">What we look for in interns</h2>
+            <div className="mt-6 space-y-4">
+              {candidateSignals.map((item) => (
+                <div key={item} className="flex items-start gap-3">
+                  <div className="mt-2 h-2 w-2 flex-shrink-0 rounded-full bg-orange-500" />
+                  <span className="text-sm leading-relaxed text-slate-600">{item}</span>
                 </div>
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Email Address</label>
-                  <input type="email" className="w-full px-4 py-2.5 rounded-lg bg-background border border-input text-sm focus:ring-2 focus:ring-accent/50 outline-none transition" placeholder="you@email.com" />
+              ))}
+            </div>
+            <div className="mt-8 rounded-2xl border border-orange-100 bg-orange-50 p-5">
+              <p className="text-sm font-semibold text-slate-900">Application tip</p>
+              <p className="mt-2 text-sm leading-relaxed text-slate-600">
+                Include GitHub, portfolio, LinkedIn, or class projects if you have them. We value initiative and proof of work.
+              </p>
+            </div>
+          </div>
+        </AnimatedSection>
+      </div>
+    </section>
+
+    <section className="section-padding">
+      <div className="container-custom">
+        <SectionHeading
+          label="How It Works"
+          title="Simple internship hiring process"
+          description="We keep the application journey short, clear, and focused on potential."
+        />
+        <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4 xl:gap-6">
+          {applicationSteps.map((item, index) => (
+            <AnimatedSection key={item.step} delay={index * 0.08}>
+              <div className="h-full rounded-3xl border border-slate-200 bg-white p-6 shadow-md shadow-slate-200/30">
+                <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-2xl bg-slate-900 text-sm font-bold text-white">
+                  0{index + 1}
                 </div>
+                <h3 className="font-display text-xl font-semibold text-slate-900">{item.step}</h3>
+                <p className="mt-3 text-sm leading-relaxed text-slate-600">{item.desc}</p>
               </div>
-              <div className="grid md:grid-cols-2 gap-5">
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Phone Number</label>
-                  <input type="tel" className="w-full px-4 py-2.5 rounded-lg bg-background border border-input text-sm focus:ring-2 focus:ring-accent/50 outline-none transition" placeholder=" +91 9839455577" />
-                </div>
-                <div>
-                  <label className="text-sm font-medium text-foreground mb-1.5 block">Current Role</label>
-                  <input type="text" className="w-full px-4 py-2.5 rounded-lg bg-background border border-input text-sm focus:ring-2 focus:ring-accent/50 outline-none transition" placeholder="Your current position" />
-                </div>
-              </div>
-              <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">Position Interested In</label>
-                <input type="text" className="w-full px-4 py-2.5 rounded-lg bg-background border border-input text-sm focus:ring-2 focus:ring-accent/50 outline-none transition" placeholder="e.g. System Integration Engineer" />
-              </div>
-              <div>
-                <label className="text-sm font-medium text-foreground mb-1.5 block">Additional Comments</label>
-                <textarea rows={4} className="w-full px-4 py-2.5 rounded-lg bg-background border border-input text-sm focus:ring-2 focus:ring-accent/50 outline-none transition resize-none" placeholder="Tell us about yourself..." />
-              </div>
-              <Button type="submit" size="lg" className="w-full bg-accent text-accent-foreground hover:bg-cyan-light font-semibold gap-2">
-                Submit Application <ArrowRight size={18} />
-              </Button>
-            </form>
-          </AnimatedSection>
+            </AnimatedSection>
+          ))}
         </div>
+      </div>
+    </section>
+
+    <section className="section-padding bg-slate-950">
+      <div className="container-custom">
+        <AnimatedSection className="rounded-[2rem] border border-white/10 bg-white/5 p-6 text-center text-white shadow-xl sm:p-8 md:p-10">
+          <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-3xl bg-orange-500/15 text-orange-300">
+            <BriefcaseBusiness size={30} />
+          </div>
+          <h2 className="mt-5 font-display text-2xl font-bold sm:text-3xl md:text-4xl">Ready to apply for an internship?</h2>
+          <p className="mx-auto mt-4 max-w-2xl text-sm leading-relaxed text-white/75 sm:text-base">
+            Send your resume and a short introduction to our team. Mention your preferred internship track, availability, and any project links.
+          </p>
+          <div className="mt-8 flex flex-col items-center justify-center gap-3 sm:flex-row">
+            <a href={internshipApplicationUrl} target="_blank" rel="noreferrer">
+              <Button size="lg" className="w-full gap-2 bg-orange-500 px-8 font-semibold text-white hover:bg-orange-600 sm:w-auto">
+                Email Your Application <Send size={18} />
+              </Button>
+            </a>
+            <p className="text-sm text-white/70">
+            </p>
+            <Link to="/contact">
+              <Button size="lg" variant="outline" className="w-full border-white/20 bg-transparent px-8 font-semibold text-white hover:bg-white/10 sm:w-auto">
+                Contact for Details <ArrowRight size={18} />
+              </Button>
+            </Link>
+          </div>
+        </AnimatedSection>
       </div>
     </section>
 

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, Target, Users, Lightbulb, Globe, BriefcaseBusiness, BrainCircuit, Layers3 } from "lucide-react";
+import { ArrowRight, Target, Users, Lightbulb, Globe, BriefcaseBusiness, BrainCircuit, Layers3, Mail, MapPin, Phone } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
 import SectionHeading from "@/components/SectionHeading";
 import Navbar from "@/components/Navbar";
@@ -26,6 +26,27 @@ const teamMembers = [
     role: "AI & Technology Lead",
     icon: BrainCircuit,
     bio: "Ayush focuses on AI solutions, modern application architecture, and scalable digital systems that turn complex ideas into usable products.",
+  },
+];
+
+const contactDetails = [
+  {
+    icon: Mail,
+    title: "Email",
+    value: "info@clickmicrosystem.com",
+    detail: "Reach out for partnerships, project discussions, and internship inquiries.",
+  },
+  {
+    icon: Phone,
+    title: "Phone",
+    value: "+91 9839455577",
+    detail: "Talk to our team directly for urgent coordination and business conversations.",
+  },
+  {
+    icon: MapPin,
+    title: "Office",
+    value: "7D/62, Vrindvan Yojna, Lucknow, Uttar Pradesh 226030",
+    detail: "Serving clients with practical onsite, remote, and hybrid support models.",
   },
 ];
 
@@ -90,6 +111,30 @@ const About = () => (
                 <h3 className="font-display text-xl font-semibold text-slate-900 sm:text-2xl">{member.name}</h3>
                 <p className="mt-2 text-xs font-semibold uppercase tracking-[0.18em] text-orange-500 sm:text-sm">{member.role}</p>
                 <p className="mt-4 text-sm leading-relaxed text-slate-600">{member.bio}</p>
+              </div>
+            </AnimatedSection>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section className="section-padding">
+      <div className="container-custom">
+        <SectionHeading
+          label="Contact Details"
+          title="Connect With Click Microsystem"
+          description="If you want to discuss a project, service requirement, training need, or internship opportunity, here is the fastest way to reach us."
+        />
+        <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
+          {contactDetails.map((item, index) => (
+            <AnimatedSection key={item.title} delay={index * 0.08}>
+              <div className="h-full rounded-3xl border border-orange-100 bg-white p-5 shadow-lg shadow-slate-200/35 sm:p-6">
+                <div className="mb-4 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100 sm:mb-5 sm:h-16 sm:w-16">
+                  <item.icon size={26} className="text-orange-500" />
+                </div>
+                <h3 className="font-display text-xl font-semibold text-slate-900 sm:text-2xl">{item.title}</h3>
+                <p className="mt-2 text-sm font-semibold leading-relaxed text-orange-600 sm:text-base">{item.value}</p>
+                <p className="mt-4 text-sm leading-relaxed text-slate-600">{item.detail}</p>
               </div>
             </AnimatedSection>
           ))}
