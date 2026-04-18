@@ -46,6 +46,14 @@ const products = [
   { icon: Lock, title: "Cloud Security", desc: "Secure access, improve compliance visibility, and monitor threats centrally." },
 ];
 
+const antiGravityParticles = [
+  { size: 220, top: "8%", left: "6%", delay: "0s", duration: "18s" },
+  { size: 140, top: "18%", left: "72%", delay: "-4s", duration: "16s" },
+  { size: 180, top: "58%", left: "12%", delay: "-9s", duration: "20s" },
+  { size: 110, top: "62%", left: "78%", delay: "-2s", duration: "14s" },
+  { size: 90, top: "28%", left: "46%", delay: "-6s", duration: "12s" },
+];
+
 const Index = () => {
   return (
     <div className="min-h-screen">
@@ -56,6 +64,26 @@ const Index = () => {
         <div className="absolute inset-0">
           <img src={heroBg} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 hero-gradient opacity-80" />
+          <div className="antigravity-bg absolute inset-0 opacity-90">
+            <div className="antigravity-core antigravity-drift" />
+            <div className="antigravity-ring antigravity-ring-one" />
+            <div className="antigravity-ring antigravity-ring-two" />
+            <div className="antigravity-grid" />
+            {antiGravityParticles.map((particle, index) => (
+              <span
+                key={index}
+                className="antigravity-particle"
+                style={{
+                  width: `${particle.size}px`,
+                  height: `${particle.size}px`,
+                  top: particle.top,
+                  left: particle.left,
+                  animationDelay: particle.delay,
+                  animationDuration: particle.duration,
+                }}
+              />
+            ))}
+          </div>
         </div>
         <div className="relative z-10 container-custom px-4 pt-24 sm:px-6 md:px-8 md:pt-28">
           <div className="max-w-3xl">

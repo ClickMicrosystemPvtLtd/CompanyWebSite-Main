@@ -122,25 +122,6 @@ const Contact = () => {
         </div>
       </section>
 
-      <section className="section-padding">
-        <div className="container-custom">
-          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
-            {contactCards.map((card, index) => (
-              <AnimatedSection key={card.label} delay={index * 0.08}>
-                <div className="h-full rounded-3xl border border-orange-100 bg-white p-5 shadow-lg shadow-slate-200/40 sm:p-6">
-                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100">
-                    <card.icon size={22} className="text-orange-500" />
-                  </div>
-                  <h2 className="font-display text-lg font-semibold text-slate-900 sm:text-xl">{card.label}</h2>
-                  <p className="mt-2 break-words text-sm font-medium text-orange-600 sm:text-base">{card.value}</p>
-                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{card.detail}</p>
-                </div>
-              </AnimatedSection>
-            ))}
-          </div>
-        </div>
-      </section>
-
       <section className="section-padding bg-orange-50/50">
         <div className="container-custom grid gap-6 lg:gap-8 xl:grid-cols-[0.85fr_1.15fr]">
           <AnimatedSection direction="left">
@@ -276,6 +257,25 @@ const Contact = () => {
               </Button>
             </form>
           </AnimatedSection>
+        </div>
+      </section>
+
+      <section className="section-padding">
+        <div className="container-custom">
+          <div className="grid gap-5 sm:grid-cols-2 xl:grid-cols-3 xl:gap-6">
+            {contactCards.map((card, index) => (
+              <AnimatedSection key={card.label} delay={index * 0.08}>
+                <div className="h-full rounded-3xl border border-orange-100 bg-white p-5 shadow-lg shadow-slate-200/40 sm:p-6">
+                  <div className="mb-4 flex h-12 w-12 items-center justify-center rounded-2xl bg-orange-100">
+                    <card.icon size={22} className="text-orange-500" />
+                  </div>
+                  <h2 className="font-display text-lg font-semibold text-slate-900 sm:text-xl">{card.label}</h2>
+                  <p className="mt-2 break-words text-sm font-medium text-orange-600 sm:text-base">{card.value}</p>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{card.detail}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
         </div>
       </section>
 
