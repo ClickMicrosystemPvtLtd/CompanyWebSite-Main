@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
-import { ChevronDown, ChevronRight, Menu, X, ArrowRight, BriefcaseBusiness, Cog, Shield, Code, Cloud, Cpu, Users } from "lucide-react";
+import { ChevronDown, ChevronRight, Menu, X, ArrowRight, BriefcaseBusiness, Cog, Shield, Code, Cloud, Cpu, Palette, Users } from "lucide-react";
 import { AnimatePresence, motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import MegaMenu from "@/components/MegaMenu";
@@ -30,6 +30,7 @@ const mobileServices = [
   { icon: Cloud, title: "Infrastructure Services", path: "/services" },
   { icon: Cpu, title: "Business Process Services", path: "/services" },
   { icon: Users, title: "Consulting Services", path: "/services" },
+  { icon: Palette, title: "Creative Services", path: "/services#creative-services" },
 ];
 
 const Navbar = () => {
@@ -65,13 +66,13 @@ const Navbar = () => {
       <div className="container-custom flex h-20 items-center justify-between gap-3 px-3 sm:h-[5.5rem] sm:px-4 lg:h-24 xl:px-5">
         <Link
           to="/"
-          className="flex w-[170px] flex-shrink-0 items-center sm:w-[190px] md:w-[205px] xl:w-[200px] 2xl:w-[235px]"
+          className="flex w-[145px] min-w-0 flex-shrink-0 items-center sm:w-[190px] md:w-[205px] xl:w-[200px] 2xl:w-[235px]"
           aria-label="Click Microsystem home"
         >
           <img
             src={logo}
             alt="Click Microsystem"
-            className="h-14 w-full object-contain object-left sm:h-16 md:h-[4.25rem] lg:h-[4.25rem] xl:h-[4.5rem] 2xl:h-20"
+            className="h-12 w-full object-contain object-left sm:h-16 md:h-[4.25rem] lg:h-[4.25rem] xl:h-[4.5rem] 2xl:h-20"
           />
         </Link>
 
@@ -120,7 +121,7 @@ const Navbar = () => {
             exit={{ opacity: 0, height: 0 }}
             className="overflow-hidden border-t border-orange-100 bg-white xl:hidden"
           >
-            <nav className="container-custom flex flex-col gap-2 px-4 py-5">
+            <nav className="container-custom flex max-h-[calc(100svh-5rem)] flex-col gap-2 overflow-y-auto px-4 py-5 sm:max-h-[calc(100svh-5.5rem)]">
               {primaryLinks.map((link) => (
                 <Link
                   key={link.path}

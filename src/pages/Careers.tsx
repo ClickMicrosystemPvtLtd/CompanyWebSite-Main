@@ -56,8 +56,29 @@ const applicationSteps = [
   { step: "Start", desc: "Selected candidates receive onboarding details and project orientation." },
 ];
 
+const trainerHiringOptions = [
+  {
+    icon: GraduationCap,
+    title: "Professional IT Trainers",
+    detail: "We are hiring experienced trainers who can deliver practical sessions in software development, cloud, cybersecurity, AI, and modern tools.",
+  },
+  {
+    icon: Laptop2,
+    title: "IT Tutors",
+    detail: "We are looking for tutors who can support students with technical concepts, certification preparation, project guidance, and hands-on lab learning.",
+  },
+  {
+    icon: Code2,
+    title: "Bootcamp & Project Mentors",
+    detail: "We are also hiring mentors who can lead coding batches, workshops, capstone projects, and job-ready technical practice sessions.",
+  },
+];
+
 const internshipApplicationUrl =
   "https://mail.google.com/mail/?view=cm&fs=1&to=ayush@clickmicrosystem.in&su=Internship%20Application%20-%20Field%20of%20Interest&body=Hello%20Ayush%2C%0A%0AI%20would%20like%20to%20apply%20for%20an%20internship%20at%20Click%20Microsystem.%0A%0AField%20of%20interest%3A%20%0AFull%20name%3A%20%0ACollege%20%2F%20Course%3A%20%0APhone%20number%3A%20%0AAvailable%20from%3A%20%0A%0AI%20will%20attach%20my%20resume%20for%20review.%0A%0ARegards%2C%0A";
+
+const trainerApplicationUrl =
+  "https://mail.google.com/mail/?view=cm&fs=1&to=ayush@clickmicrosystem.in&su=Application%20for%20IT%20Trainer%20or%20Tutor%20Role&body=Hello%20Ayush%2C%0A%0AI%20would%20like%20to%20apply%20for%20the%20IT%20Trainer%20%2F%20Tutor%20role%20at%20Click%20Microsystem.%0A%0ARole%20of%20interest%3A%20%0AFull%20name%3A%20%0APhone%20number%3A%20%0AEmail%20address%3A%20%0ATeaching%20experience%3A%20%0ASpecialization%20%2F%20technologies%3A%20%0ACurrent%20location%3A%20%0AAvailability%3A%20%0A%0AI%20will%20attach%20my%20resume%20for%20review.%0A%0ARegards%2C%0A";
 
 const Careers = () => (
   <div className="min-h-screen bg-white">
@@ -182,8 +203,65 @@ const Careers = () => (
     <section className="section-padding">
       <div className="container-custom">
         <SectionHeading
+          label="We Are Hiring"
+          title="We are hiring professional IT trainers and IT tutors"
+          description="Join Click Microsystem as a trainer, tutor, or mentor and help deliver practical technical learning experiences across student, institute, and professional programs."
+        />
+        <div className="grid gap-5 lg:grid-cols-[1.1fr_0.9fr] lg:gap-8">
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {trainerHiringOptions.map((option, index) => (
+              <AnimatedSection key={option.title} delay={index * 0.08}>
+                <div className="h-full rounded-3xl border border-orange-100 bg-white p-6 shadow-lg shadow-slate-200/35">
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100">
+                    <option.icon size={26} className="text-orange-500" />
+                  </div>
+                  <h3 className="font-display text-xl font-semibold text-slate-900">{option.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{option.detail}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+
+          <AnimatedSection direction="right">
+            <div className="rounded-3xl bg-slate-900 p-6 text-white shadow-xl sm:p-8">
+              <span className="text-xs font-semibold uppercase tracking-[0.24em] text-orange-300 sm:text-sm">Who Should Apply</span>
+              <h2 className="mt-3 font-display text-2xl font-bold sm:text-3xl">Trainer and tutor roles for different teaching environments</h2>
+              <div className="mt-6 space-y-4">
+                {[
+                  "Professionals with experience teaching software, cloud, AI, cybersecurity, or related IT subjects",
+                  "Tutors who can guide students through practical assignments, projects, and technical foundations",
+                  "Mentors who are confident handling workshops, bootcamps, and certification-oriented sessions",
+                  "Candidates available for onsite, remote, or hybrid teaching and mentoring engagements",
+                ].map((item) => (
+                  <div key={item} className="flex items-start gap-3">
+                    <Sparkles size={18} className="mt-0.5 flex-shrink-0 text-orange-300" />
+                    <span className="text-sm text-white/85">{item}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+                <a href={trainerApplicationUrl} target="_blank" rel="noreferrer">
+                  <Button size="lg" className="w-full gap-2 bg-orange-500 px-8 font-semibold text-white hover:bg-orange-600 sm:w-auto">
+                    Apply for Trainer Role <Send size={18} />
+                  </Button>
+                </a>
+                <Link to="/contact">
+                  <Button size="lg" variant="outline" className="w-full border-white/20 bg-transparent px-8 font-semibold text-white hover:bg-white/10 sm:w-auto">
+                    Talk to Our Team
+                  </Button>
+                </Link>
+              </div>
+            </div>
+          </AnimatedSection>
+        </div>
+      </div>
+    </section>
+
+    <section className="section-padding">
+      <div className="container-custom">
+        <SectionHeading
           label="How It Works"
-          title="Simple internship hiring process"
+          title="Simple  hiring process"
           description="We keep the application journey short, clear, and focused on potential."
         />
         <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4 xl:gap-6">

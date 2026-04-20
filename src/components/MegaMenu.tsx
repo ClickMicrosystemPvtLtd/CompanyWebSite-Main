@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { AnimatePresence, motion } from "framer-motion";
-import { ArrowRight, BriefcaseBusiness, ChevronDown, Cloud, Code, Cog, Cpu, Shield, Users } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, ChevronDown, Cloud, Code, Cog, Cpu, Palette, Shield, Users } from "lucide-react";
 import { successStories } from "@/data/successStories";
 
 const services = [
@@ -12,6 +12,7 @@ const services = [
   { icon: Cloud, title: "Infrastructure Services", desc: "Scalable cloud, networks, and high-availability deployment.", path: "/services" },
   { icon: Cpu, title: "Business Process Services", desc: "Automation-led operations for finance, HR, and customer workflows.", path: "/services" },
   { icon: Users, title: "Consulting Services", desc: "Technology roadmaps aligned with business growth and ROI.", path: "/services" },
+  { icon: Palette, title: "Creative Services", desc: "Graphic design, content writing, photo editing, and video editing support.", path: "/services#creative-services" },
 ];
 
 interface MegaMenuDropdownProps {

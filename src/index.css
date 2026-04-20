@@ -83,12 +83,22 @@
 }
 
 @layer base {
+  html {
+    width: 100%;
+    overflow-x: hidden;
+  }
   * {
     @apply border-border;
   }
   body {
     @apply bg-background text-foreground;
     font-family: 'DM Sans', sans-serif;
+    width: 100%;
+    overflow-x: hidden;
+  }
+  #root {
+    width: 100%;
+    overflow-x: hidden;
   }
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Space Grotesk', sans-serif;
@@ -97,7 +107,7 @@
 
 @layer components {
   .section-padding {
-    @apply py-20 md:py-28 px-4 md:px-8;
+    @apply px-4 py-16 sm:px-6 md:px-8 md:py-28;
   }
   .container-custom {
     @apply max-w-7xl mx-auto;
@@ -128,41 +138,54 @@
       linear-gradient(180deg, rgba(4, 10, 20, 0.1) 0%, rgba(4, 10, 20, 0.45) 100%);
     mix-blend-mode: screen;
   }
-  .antigravity-core {
+  .antigravity-cube-scene {
     position: absolute;
     left: 50%;
     top: 44%;
-    width: min(42vw, 30rem);
-    height: min(42vw, 30rem);
-    border-radius: 9999px;
+    width: min(32vw, 15rem);
+    height: min(32vw, 15rem);
     transform: translate(-50%, -50%);
+    perspective: 1200px;
+    filter: drop-shadow(0 0 24px rgba(76, 228, 255, 0.35)) drop-shadow(0 0 80px rgba(76, 228, 255, 0.2));
+  }
+  .antigravity-cube {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    animation: antigravity-cube-spin 18s linear infinite;
+    transition: transform 180ms ease-out;
+    will-change: transform;
+  }
+  .antigravity-cube-face {
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(150, 240, 255, 0.42);
+    border-radius: 1.25rem;
     background:
-      radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.6) 0 6%, rgba(110, 244, 255, 0.75) 8%, rgba(46, 181, 255, 0.28) 22%, rgba(3, 10, 18, 0.9) 48%, rgba(3, 10, 18, 0) 72%);
-    filter: blur(2px);
+      linear-gradient(135deg, rgba(166, 245, 255, 0.3), rgba(26, 110, 190, 0.08)),
+      radial-gradient(circle at 30% 30%, rgba(255, 255, 255, 0.45), rgba(255, 255, 255, 0.04) 40%, rgba(255, 255, 255, 0) 68%);
     box-shadow:
-      0 0 80px rgba(55, 216, 255, 0.28),
-      0 0 180px rgba(55, 216, 255, 0.16);
+      inset 0 0 28px rgba(103, 233, 255, 0.14),
+      0 0 22px rgba(103, 233, 255, 0.12);
+    backdrop-filter: blur(6px);
   }
-  .antigravity-ring {
-    position: absolute;
-    left: 50%;
-    top: 44%;
-    border-radius: 9999px;
-    transform: translate(-50%, -50%);
-    border: 1px solid rgba(130, 231, 255, 0.28);
-    box-shadow: inset 0 0 30px rgba(106, 229, 255, 0.14), 0 0 30px rgba(106, 229, 255, 0.12);
+  .antigravity-cube-front {
+    transform: translateZ(min(16vw, 7.5rem));
   }
-  .antigravity-ring-one {
-    width: min(54vw, 42rem);
-    height: min(18vw, 12rem);
-    animation: antigravity-spin 18s linear infinite;
+  .antigravity-cube-back {
+    transform: rotateY(180deg) translateZ(min(16vw, 7.5rem));
   }
-  .antigravity-ring-two {
-    width: min(62vw, 50rem);
-    height: min(22vw, 16rem);
-    opacity: 0.65;
-    transform: translate(-50%, -50%) rotate(-18deg);
-    animation: antigravity-spin-reverse 24s linear infinite;
+  .antigravity-cube-right {
+    transform: rotateY(90deg) translateZ(min(16vw, 7.5rem));
+  }
+  .antigravity-cube-left {
+    transform: rotateY(-90deg) translateZ(min(16vw, 7.5rem));
+  }
+  .antigravity-cube-top {
+    transform: rotateX(90deg) translateZ(min(16vw, 7.5rem));
+  }
+  .antigravity-cube-bottom {
+    transform: rotateX(-90deg) translateZ(min(16vw, 7.5rem));
   }
   .antigravity-grid {
     position: absolute;
@@ -214,13 +237,10 @@
     0%, 100% { transform: translate(-50%, -50%) scale(1); }
     50% { transform: translate(-50%, -52%) scale(1.05); }
   }
-  @keyframes antigravity-spin {
-    from { transform: translate(-50%, -50%) rotate(0deg); }
-    to { transform: translate(-50%, -50%) rotate(360deg); }
-  }
-  @keyframes antigravity-spin-reverse {
-    from { transform: translate(-50%, -50%) rotate(-18deg); }
-    to { transform: translate(-50%, -50%) rotate(-378deg); }
+  @keyframes antigravity-cube-spin {
+    0% { transform: rotateX(var(--cube-rotate-x, -20deg)) rotateY(calc(var(--cube-rotate-y, 0deg) + 0deg)) rotateZ(0deg); }
+    50% { transform: rotateX(var(--cube-rotate-x, -20deg)) rotateY(calc(var(--cube-rotate-y, 0deg) + 180deg)) rotateZ(180deg); }
+    100% { transform: rotateX(var(--cube-rotate-x, -20deg)) rotateY(calc(var(--cube-rotate-y, 0deg) + 360deg)) rotateZ(360deg); }
   }
   @keyframes antigravity-float {
     0%, 100% { transform: translate3d(0, 0, 0) scale(0.94); opacity: 0.3; }

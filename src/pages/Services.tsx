@@ -1,8 +1,9 @@
 import { useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Button } from "@/components/ui/button";
-import { ArrowRight, BriefcaseBusiness, Cog, Shield, Code, Cloud, Cpu, Users, CheckCircle } from "lucide-react";
+import { ArrowRight, BriefcaseBusiness, Cog, Shield, Code, Cloud, Cpu, Users, CheckCircle, Palette, PenSquare, Camera, Video } from "lucide-react";
 import AnimatedSection from "@/components/AnimatedSection";
+import SectionHeading from "@/components/SectionHeading";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 import sectionBg3 from "@/assets/section-bg-3.jpg";
@@ -48,6 +49,29 @@ const placementHighlights = [
   "Industry-ready training with placement assistance",
   "Faster hiring cycles with quality-focused matching",
   "Support for startups, SMBs, and enterprise teams",
+];
+
+const creativeServices = [
+  {
+    icon: Palette,
+    title: "Graphic Designing Services",
+    detail: "Creative brand assets, marketing visuals, social media posts, banners, brochures, presentations, and digital design support tailored to your business.",
+  },
+  {
+    icon: PenSquare,
+    title: "Content Writing",
+    detail: "Professional content for websites, company profiles, blogs, product descriptions, marketing campaigns, and business communication needs.",
+  },
+  {
+    icon: Camera,
+    title: "Professional Photo Editors",
+    detail: "High-quality image retouching, correction, compositing, catalog editing, and polished visual enhancement for brand and promotional use.",
+  },
+  {
+    icon: Video,
+    title: "Professional Video Editors",
+    detail: "Editing for reels, promos, explainer videos, interviews, social campaigns, training media, and branded visual storytelling.",
+  },
 ];
 
 const Services = () => {
@@ -129,6 +153,54 @@ const Services = () => {
               {i < serviceDetails.length - 1 && <div className="mt-14 border-t border-border md:mt-20" />}
             </AnimatedSection>
           ))}
+        </div>
+      </section>
+
+      <section id="creative-services" className="section-padding scroll-mt-32 bg-orange-50/50">
+        <div className="container-custom">
+          <SectionHeading
+            label="Creative Services"
+            title="Creative support for design, content, photo editing, and video editing"
+            description="Along with technology services, we also provide creative professionals who help brands communicate clearly and present their work with stronger visual impact."
+          />
+          <div className="grid gap-5 md:grid-cols-2 xl:grid-cols-4 xl:gap-6">
+            {creativeServices.map((service, index) => (
+              <AnimatedSection key={service.title} delay={index * 0.08}>
+                <div className="h-full rounded-3xl border border-orange-100 bg-white p-6 shadow-lg shadow-slate-200/35">
+                  <div className="mb-5 flex h-14 w-14 items-center justify-center rounded-2xl bg-orange-100">
+                    <service.icon size={26} className="text-orange-500" />
+                  </div>
+                  <h3 className="font-display text-xl font-semibold text-slate-900">{service.title}</h3>
+                  <p className="mt-3 text-sm leading-relaxed text-slate-600">{service.detail}</p>
+                </div>
+              </AnimatedSection>
+            ))}
+          </div>
+          <AnimatedSection>
+            <div className="mt-8 rounded-3xl bg-slate-900 p-6 text-white shadow-xl sm:p-8">
+              <div className="grid gap-6 lg:grid-cols-[1.05fr_0.95fr] lg:items-center">
+                <div>
+                  <span className="text-xs font-semibold uppercase tracking-[0.24em] text-orange-300 sm:text-sm">Creative Delivery</span>
+                  <h2 className="mt-3 font-display text-2xl font-bold sm:text-3xl">Need creative specialists for your brand or campaign?</h2>
+                  <p className="mt-4 text-sm leading-relaxed text-white/80 sm:text-base">
+                    We support businesses with reliable creative execution for branding, promotions, web content, social media, product showcases, and polished media production.
+                  </p>
+                </div>
+                <div className="flex flex-col gap-3 sm:flex-row lg:justify-end">
+                  <Link to="/contact">
+                    <Button size="lg" className="w-full bg-orange-500 font-semibold text-white hover:bg-orange-400 sm:w-auto">
+                      Request Creative Services <ArrowRight size={18} />
+                    </Button>
+                  </Link>
+                  <Link to="/contact">
+                    <Button size="lg" variant="outline" className="w-full border-white/20 bg-transparent font-semibold text-white hover:bg-white/10 sm:w-auto">
+                      Talk to Our Team
+                    </Button>
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </AnimatedSection>
         </div>
       </section>
 

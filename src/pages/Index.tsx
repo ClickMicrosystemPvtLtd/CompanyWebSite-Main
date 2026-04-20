@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { motion } from "framer-motion";
@@ -55,19 +56,55 @@ const antiGravityParticles = [
 ];
 
 const Index = () => {
+  const [cubeTilt, setCubeTilt] = useState({ x: -20, y: 0 });
+
+  const handleHeroPointerMove = (event: React.PointerEvent<HTMLElement>) => {
+    const bounds = event.currentTarget.getBoundingClientRect();
+    const relativeX = (event.clientX - bounds.left) / bounds.width;
+    const relativeY = (event.clientY - bounds.top) / bounds.height;
+
+    setCubeTilt({
+      x: -32 + relativeY * 24,
+      y: -20 + relativeX * 40,
+    });
+  };
+
+  const resetHeroPointer = () => {
+    setCubeTilt({ x: -20, y: 0 });
+  };
+
   return (
     <div className="min-h-screen">
       <Navbar />
 
       {/* Hero */}
-      <section className="relative min-h-screen flex items-center overflow-hidden">
+      <section
+        className="relative min-h-screen flex items-center overflow-hidden"
+        onPointerMove={handleHeroPointerMove}
+        onPointerLeave={resetHeroPointer}
+      >
         <div className="absolute inset-0">
           <img src={heroBg} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 hero-gradient opacity-80" />
           <div className="antigravity-bg absolute inset-0 opacity-90">
-            <div className="antigravity-core antigravity-drift" />
-            <div className="antigravity-ring antigravity-ring-one" />
-            <div className="antigravity-ring antigravity-ring-two" />
+            <div className="antigravity-cube-scene antigravity-drift">
+              <div
+                className="antigravity-cube"
+                style={
+                  {
+                    "--cube-rotate-x": `${cubeTilt.x}deg`,
+                    "--cube-rotate-y": `${cubeTilt.y}deg`,
+                  } as React.CSSProperties
+                }
+              >
+                <span className="antigravity-cube-face antigravity-cube-front" />
+                <span className="antigravity-cube-face antigravity-cube-back" />
+                <span className="antigravity-cube-face antigravity-cube-right" />
+                <span className="antigravity-cube-face antigravity-cube-left" />
+                <span className="antigravity-cube-face antigravity-cube-top" />
+                <span className="antigravity-cube-face antigravity-cube-bottom" />
+              </div>
+            </div>
             <div className="antigravity-grid" />
             {antiGravityParticles.map((particle, index) => (
               <span

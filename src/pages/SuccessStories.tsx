@@ -20,18 +20,18 @@ const SuccessStories = () => {
       <Navbar />
 
       {/* Hero */}
-      <section className="relative pt-32 pb-20 px-4 md:px-8 overflow-hidden">
+      <section className="relative overflow-hidden px-4 pb-16 pt-28 sm:px-6 md:px-8 md:pb-20 md:pt-32">
         <div className="absolute inset-0">
           <img src={successStoriesBg} alt="" className="w-full h-full object-cover" />
           <div className="absolute inset-0 bg-primary/85" />
         </div>
         <div className="container-custom relative z-10">
           <AnimatedSection className="max-w-3xl">
-            <span className="text-accent font-display text-sm font-medium tracking-wider uppercase text-hero-sub">Success Stories</span>
-            <h1 className="font-display font-bold text-4xl md:text-5xl lg:text-6xl text-white mt-3 mb-6 leading-[1.1] text-hero-shadow">
+            <span className="text-accent font-display text-xs font-medium tracking-wider uppercase text-hero-sub sm:text-sm">Success Stories</span>
+            <h1 className="mt-3 mb-6 font-display text-3xl font-bold leading-[1.1] text-white text-hero-shadow sm:text-4xl md:text-5xl lg:text-6xl">
               Real Impact, <span className="gradient-text">Real Results</span>
             </h1>
-            <p className="text-lg text-white/90 leading-relaxed text-hero-sub">
+            <p className="text-base leading-relaxed text-white/90 text-hero-sub sm:text-lg">
               Explore how we've helped businesses transform through AI-powered products, intelligent automation, and cutting-edge SaaS solutions.
             </p>
           </AnimatedSection>
@@ -41,12 +41,12 @@ const SuccessStories = () => {
       {/* Filters + Grid */}
       <section className="section-padding">
         <div className="container-custom">
-          <div className="flex flex-wrap gap-3 mb-12 justify-center">
+          <div className="mb-10 flex flex-wrap justify-center gap-3 md:mb-12">
             {storyCategories.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveFilter(cat)}
-                className={`px-5 py-2 rounded-full text-sm font-medium transition-all duration-300 ${
+                className={`rounded-full px-4 py-2 text-sm font-medium transition-all duration-300 sm:px-5 ${
                   activeFilter === cat
                     ? "bg-accent text-accent-foreground shadow-lg"
                     : "bg-muted text-muted-foreground hover:bg-accent/10 hover:text-accent"
@@ -101,20 +101,20 @@ const SuccessStories = () => {
       <section className="section-padding">
         <div className="container-custom">
           <AnimatedSection>
-            <div className="relative rounded-2xl overflow-hidden p-10 md:p-16 text-center">
+            <div className="relative overflow-hidden rounded-2xl p-6 text-center sm:p-8 md:p-16">
               <div className="absolute inset-0">
                 <img src={sectionBg4} alt="" className="w-full h-full object-cover" />
                 <div className="absolute inset-0 bg-primary/80" />
               </div>
               <div className="relative z-10">
-                <h2 className="font-display font-bold text-3xl md:text-4xl text-white mb-4 text-hero-shadow">
+                <h2 className="mb-4 font-display text-2xl font-bold text-white text-hero-shadow sm:text-3xl md:text-4xl">
                   Want Similar Results?
                 </h2>
                 <p className="text-white/85 max-w-xl mx-auto mb-8 text-hero-sub">
                   Let's discuss how we can build a custom AI-powered solution for your business.
                 </p>
                 <Link to="/contact">
-                  <Button size="lg" className="bg-accent text-accent-foreground hover:bg-cyan-light font-semibold px-10 gap-2">
+                  <Button size="lg" className="w-full gap-2 bg-accent px-10 font-semibold text-accent-foreground hover:bg-cyan-light sm:w-auto">
                     Start a Conversation <ArrowRight size={18} />
                   </Button>
                 </Link>

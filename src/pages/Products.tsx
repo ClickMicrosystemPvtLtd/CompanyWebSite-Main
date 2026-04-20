@@ -60,8 +60,8 @@ const Products = () => (
       </div>
       <div className="container-custom relative z-10">
         <AnimatedSection className="max-w-4xl">
-          <span className="text-sm font-semibold uppercase tracking-[0.24em] text-orange-300">Products</span>
-          <h1 className="mt-4 font-display text-4xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
+          <span className="text-xs font-semibold uppercase tracking-[0.24em] text-orange-300 sm:text-sm">Products</span>
+          <h1 className="mt-4 font-display text-3xl font-bold leading-tight text-white sm:text-5xl md:text-6xl">
             Business-ready products built around AI, automation, and secure cloud operations.
           </h1>
           <p className="mt-6 max-w-3xl text-base leading-relaxed text-white/85 sm:text-lg">
@@ -135,12 +135,12 @@ const Products = () => (
           </div>
         </AnimatedSection>
         <AnimatedSection direction="right">
-          <div className="rounded-3xl bg-slate-900 p-6 text-white shadow-xl sm:p-8">
-            <span className="text-sm font-semibold uppercase tracking-[0.24em] text-orange-300">Best Fit</span>
-            <h3 className="mt-4 font-display text-3xl font-bold">Ideal for teams that need business impact fast.</h3>
-            <p className="mt-4 text-sm leading-relaxed text-white/75">
-              Our products are a strong fit for organizations that want faster deployment than custom software, but still need solution flexibility.
-            </p>
+            <div className="rounded-3xl bg-slate-900 p-6 text-white shadow-xl sm:p-8">
+              <span className="text-sm font-semibold uppercase tracking-[0.24em] text-orange-300">Best Fit</span>
+              <h3 className="mt-4 font-display text-2xl font-bold sm:text-3xl">Ideal for teams that need business impact fast.</h3>
+              <p className="mt-4 text-sm leading-relaxed text-white/75">
+                Our products are a strong fit for organizations that want faster deployment than custom software, but still need solution flexibility.
+              </p>
             <div className="mt-6 space-y-3 text-sm text-white/85">
               <p>Retail and service teams improving customer response time</p>
               <p>Operations teams reducing approval delays and manual work</p>
